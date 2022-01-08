@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> Kupuj - sprawdzanie transakcji</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<div id="menu">
+    <a href="/main">Main</a>
+</div>
+
+<div id="content">
+    <form method="post" id="login-form">
+        <input type="text" placeholder="name" name="name">
+        <br>
+        <input type="text" placeholder="lastname" name="lastname">
+        <br>
+        <input type="text" placeholder="pin" name="pin">
+        <br>
+        <input type="submit" value="Login">
+    </form>
+</div>
+
+<div th:if="${result != null}"  class="product">
+    <div th:if="${result != null}" th:text="${result}" class="result"></div>
+    <div th:if="${credit != null}" th:text="'Dziekuje za zakupy. Zapraszamy ponownie'" class="help"></div>
+    <div th:if="${credit != null}" th:text="${credit.name} + ' ' + ${credit.lastname}" class="name"></div>
+</div>
+
+</body>
+</html>
